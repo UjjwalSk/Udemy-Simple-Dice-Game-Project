@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Diceeeeeeeeeee</title>
+    <link rel="icon" href="./images/favicon.ico" type="text/css">
+    <style>
+      html{font-family:sans-serif;}
+      body{ 
+        background-color:#FF9900 ;
+        background-repeat:no-repeat;
+        background-size:cover; 
+      }
+      .container { 
+        margin: auto;
+        text-align: center;
+      }
+
+      .dice {
+        text-align: center;
+        display: inline-block;
+      } 
+
+      h1 {
+        margin: 30px; 
+        text-shadow: 5px 0 #232931;
+        font-size:4rem;
+        color:#3fc7af;
+      } 
+
+      p {
+        font-size:1.7rem;
+        color:#34568B;
+        background-color:white;
+        font-weight:700; 
+        box-shadow:0px 3px 10px #333232;
+        margin:20px 10px; 
+      }
+
+      img { 
+        margin:70px 150px;
+        transform:scale(1.5);
+        background-color:white;
+      } 
+      .btn { 
+          font-size: 1rem;    
+          font-weight: 700;
+          letter-spacing:3px;
+          line-height: 1;
+          background-color:#333232;
+          color:white;
+          border-radius:40%;
+          outline:none;
+          padding: 0.8em 0.8em 0.78em;
+          text-transform: uppercase;
+          cursor:pointer;
+          box-shadow: 0 9px gray;   
+      }
+      .btn:active{
+        position: relative;
+          top: 7px;
+          box-shadow: none;
+      }
+
+    </style>
+  </head>
+  <body> 
+    <div class="container">
+      <h1>Click On The Button!!!</h1>
+      <marquee style='color:white;font-size:1.2rem;font-weight:bold;' scrollamount="15">Lets Roll It!!!</marquee>
+      <div class="dice">
+        <p>Player 1</p>
+        <img class="img1" src="./images/dice6.png">
+      </div>
+
+      <div class="dice">
+        <p>Player 2</p>
+        <img class="img2" src="./images/dice6.png">
+      </div>
+      <br><br>
+      <button class="btn" onclick='rollMe()'>Click to Roll!</button>
+    </div>
+    <script>
+      function rollMe(){
+        var randomNumber1 = Math.floor(Math.random() * 6) + 1; 
+        var randomNumber2 = Math.floor(Math.random() * 6) + 1; 
+        var display = ""; 
+        document.querySelector(".img1").setAttribute("src", "./images/dice" + randomNumber1 + ".png");
+        document.querySelector(".img2").setAttribute("src", "./images/dice" + randomNumber2 + ".png"); 
+        if (randomNumber1 === randomNumber2) {
+            display = "Draw!";
+        }else {
+            display = randomNumber1 > randomNumber2 ? "Player 1 Wins!" : "Player 2 wins!";
+        } 
+        document.querySelector("h1").innerHTML = display;
+      }  
+    </script>
+  </body> 
+</html>
